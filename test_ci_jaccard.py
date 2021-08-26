@@ -8,8 +8,8 @@ if __name__ == '__main__':
     scale_factors = [0.1]
     confidence = 0.95
     k_mer_lengths = [21]
-    num_k_mers_list = [10000000]
-    num_simulations = 1000
+    num_k_mers_list = [1000]
+    num_simulations = 100
 
     for scale_factor in scale_factors:
         max_trials = int(1.0/scale_factor)+1
@@ -18,16 +18,14 @@ if __name__ == '__main__':
                 for k_mer_length in k_mer_lengths:    
                     mutation_model = MutationModel(num_k_mers+k_mer_length-1, k_mer_length, mutation_rate, scale_factor)
                     scaled_jaccard_indices = []
-                    for iter_count in range(num_simulations):
-                        counter = 0
-                        while counter < max_trials:
-                            mutation_model.generate()
-                            candidate_scaled_jaccard_index = mutation_model.count_scaled_jaccard()
-                            if candidate_scaled_jaccard_index <= 0.0001 or candidate_scaled_jaccard_index >= 0.9999:
+                    counter = 0
+                    while counter < num_simulations:
+                        mutation_model.generate()
+                        candidate_scaled_jaccard_indices = mutation_model.count_scaled_jaccard(int(1.0/scale_factor))
+                        for candidate_scaled_jaccard_index in candidate_scaled_jaccard_indices:
+                            if candidate_scaled_jaccard_index >= 0.0001 and candidate_scaled_jaccard_index <= 0.9999:
+                                scaled_jaccard_indices.append(candidate_scaled_jaccard_index)
                                 counter += 1
-                            else:
-                                break
-                        scaled_jaccard_indices.append(candidate_scaled_jaccard_index)
                     ci_one_step_list = compute_confidence_interval_one_step(scaled_jaccard_indices, num_k_mers,
                                                                             k_mer_length, confidence, scale_factor)
                     
