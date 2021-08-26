@@ -120,7 +120,7 @@ class MutationModel(object):
 		self.errorSeq = list(map(lambda _:1 if (self.prng.random()<self.pSubstitution) else 0,range(self.ntSequenceLength)))
 		return self.errorSeq
 
-	def count_scaled_jaccard(self,regenerate=False):
+	def count_scaled_jaccard(self, num_iterations_required, regenerate=False):
 		if regenerate:
 			self.generate()
 		mutated_list = []
@@ -131,11 +131,13 @@ class MutationModel(object):
 			else:
 				mutated_list.append(0)
 		shuffle(mutated_list)
-		shuffle(mutated_list)
 		scaled_length = int(len(mutated_list) * self.scale_factor)
-		n_mutated_scaled = sum(mutated_list[:scaled_length])
-		L_scaled = scaled_length
-		return 1.0 * (L_scaled - n_mutated_scaled) / (L_scaled + n_mutated_scaled)
+		observed_scaled_jaccards = []
+		for i in range(num_iterations_required):
+				n_mutated_scaled = sum(mutated_list[scaled_length*i:scaled_length*(i+1)])
+				L_scaled = scaled_length
+				observed_scaled_jaccards.append(1.0 * (L_scaled - n_mutated_scaled) / (L_scaled + n_mutated_scaled))
+		return observed_scaled_jaccards
 
 	def count_scaled_containment(self,regenerate=False):
 		if regenerate:
