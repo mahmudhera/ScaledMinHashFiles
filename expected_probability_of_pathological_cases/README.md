@@ -35,3 +35,8 @@ L, k, scale_factor, mutation_rate, estimated_from_experiments, estimated_from_fo
 10000, 31, 0.1, 0.3, 
 10000, 21, 0.1, 0.4, 
 10000, 31, 0.1, 0.4, 
+
+With these results, we can conclude that this formula has something seriously wrong. We need to figure that out.
+
+1. Try the PDF
+1. Consider two random processes at the same time
