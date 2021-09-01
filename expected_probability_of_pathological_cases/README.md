@@ -5,7 +5,11 @@ To get nothing common in two sketches, there are $`L-N_{mut}`$ k-mers that are n
 
 The python file implements this expected probability. The pdf files are sample plots.
 
-### Code used to plot the expected probability
-plot_expected_probability_of_pathological_cases.python
+### plot_expected_probability_of_pathological_cases.python
 
-The other files are used to make the whole thing run.
+This is the code used to plot the expected probability. The other files are used to make the whole thing run.
+
+### check_expected_probability_against_simulations.py
+
+In this script, the code to run the following experiment resides: since we do not know if the formula (for expected probability of having nothing common in the sketches) is correct, we calculate the probability of finding nothing in common in the two sketches (before and after the mutation process) from multiple simulations, and compare the value with what our formula spits out.
+
