@@ -131,7 +131,6 @@ class MutationModel(object):
 			else:
 				mutated_list.append(0)
 		shuffle(mutated_list)
-		shuffle(mutated_list)
 		scaled_length = int(len(mutated_list) * self.scale_factor)
 		n_mutated_scaled = sum(mutated_list[:scaled_length])
 		L_scaled = scaled_length
