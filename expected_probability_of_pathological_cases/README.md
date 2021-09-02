@@ -28,13 +28,14 @@ For 10k simulations, we calculated if nothing common in the sketches. We count t
 this happens. We also counted the percentage of times this happens from all the experiments. Then we compared and made a contrast
 with the value we have from formula. The results are as follows:
 
-L, k, scale_factor, mutation_rate, estimated_from_experiments, estimated_from_formula
-10000, 21, 0.1, 0.2, 0.001, 0.0029871921240774667
-10000, 31, 0.1, 0.2, 0.491, 0.30206161823753114
-10000, 21, 0.1, 0.3, 0.6292, 0.43434678390200443
-10000, 31, 0.1, 0.3, 
-10000, 21, 0.1, 0.4, 
-10000, 31, 0.1, 0.4, 
+|L|k|scale_factor|mutation_rate|estimated_from_experiments|estimated_from_formula
+|---|---|---|---|---|---|
+|10000|---|21|---|0.1|---|0.2|---|0.001|---|0.00299|
+|10000|---|31|---|0.1|---|0.2|---|0.491|---|0.302|
+|10000|---|21|---|0.1|---|0.3|---|0.6292|---|0.434|
+|10000|---|31|---|0.1|---|0.3|---|0.9877|---|0.520|
+|10000|---|21|---|0.1|---|0.4|---|0.9811|---|0.544|
+|10000|---|31|---|0.1|---|0.4|---|1.0|---|0.504|
 
 With these results, we can conclude that this formula has something seriously wrong. We need to figure that out.
 
