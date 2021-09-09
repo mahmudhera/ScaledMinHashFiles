@@ -62,6 +62,20 @@ def variance_scaled_jaccard(L, p, k, s):
     
     return term1 + term2 - term3
 
+def exp_probability_path_case_are_correction(L, k, p, s):
+    mu = L * (1-p)**k
+    sigma = sqrt(var_n_mutated(L, k, p))
+    f = lambda a, b: 0.5 * ( erf( (mu-a)/(sqrt(2)*sigma) ) - erf( (mu-b)/(sqrt(2)*sigma) ) )
+    delta = f(-0.5, L+0.5)
+    probability = lambda n: f(n-0.5, n+0.5)/delta
+    expected_probability = 0.0
+    for n in range(L+1):
+        expected_probability += ((1-s)**n)*probability(n)
+    return expected_probability
+
+def exp_probability_path_case_david(L, k, p, s):
+    return (1-s)**(L*(1-p)**k)
+
 def exp_probability_path_case(L, k, p, s):
     try:
         t = log (1-s)
@@ -100,7 +114,7 @@ if __name__ == '__main__':
     confidence = 0.95
     k_mer_lengths = [21, 31]
     num_k_mers_list = [10000]
-    num_simulations = 10000
+    num_simulations = 1000
 
     for scale_factor in scale_factors:
         max_trials = int(1.0/scale_factor)+1
@@ -120,4 +134,9 @@ if __name__ == '__main__':
                         counter += 1
                     estimated_expected_probability = 1.0 * zero_counter / counter
                     calculated_expected_probability = exp_probability_path_case(num_k_mers, k_mer_length, mutation_rate, scale_factor)
-                    print (estimated_expected_probability, calculated_expected_probability)
+                    calculated_expected_probability_david = exp_probability_path_case_david(num_k_mers, k_mer_length, mutation_rate, scale_factor)
+                    calculated_expected_probability_ac = exp_probability_path_case_are_correction(num_k_mers, k_mer_length, mutation_rate, scale_factor)
+                    print (estimated_expected_probability, 
+                           calculated_expected_probability,
+                           calculated_expected_probability_david,
+                           calculated_expected_probability_ac)
