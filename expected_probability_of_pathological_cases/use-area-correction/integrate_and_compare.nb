@@ -1,0 +1,10 @@
+prNmutEquals0 = (1-p)^(L+k)
+prNmutEquals1 = (1-p)^(L+k-3)*(2p(1-p))
+L=15
+k = 5
+Plot[{prNmutEquals0, prNmutEquals1},{p,0.01,0.2},PlotLabels->{"N=0", "N=1"}]
+Out[71]= (1-p)^20
+Out[72]= 2 (1-p)^18 p
+Out[73]= 15
+Out[74]= 5
+Out[75]= 

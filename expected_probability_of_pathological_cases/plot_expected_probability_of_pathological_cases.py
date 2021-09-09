@@ -143,7 +143,7 @@ ax.set_xlabel('Mutation rate')
 ax.set_ylabel('Scale factor')
 ax.set_zlabel('Expected probability')
 
-plt.savefig('combined4.pdf')
+plt.savefig('combined_temp.pdf')
 
 # expected probability that there is nothing common after taking the sketch
 '''
