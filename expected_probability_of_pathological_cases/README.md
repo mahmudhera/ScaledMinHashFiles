@@ -85,11 +85,26 @@ After implementing this, we calculated the expected probability from multiple si
 |10000|21|0.1|0.4|0.9811|0.940|
 |10000|31|0.1|0.4|1.0|0.999|
 
-This shows that there is still room for improvement.
+This shows that there is still room for improvement. Still, the formula looks way better than the previous, which never got values close to 1.0 (stuck at around 0.5).
 
+### Getting a lower bound
 
-### What are we doing in this file?
+This has been proved by David. Check the notebook PDF on dropbox for the proof. In short, it has been mathematically proved that the expected probability is at least (>=) (1-s)^[L*(1-p)**k]. Implemented this is: `check_expected_probability_against_simulations.py`.
 
-In this file, we calculate the precise probability that N_mut = 0, 1 and 2. Then, we calculate the same probability from normal distribution. Finally, we try to understand if working with area correction can make things better.
+```
+def exp_probability_path_case_david(L, k, p, s):
+    return (1-s)**(L*(1-p)**k)
+```
 
-### Results
+Indeed, by matching with simulations, we see the following:
+
+|L|k|scale_factor|mutation_rate|estimated_from_experiments|estimated_lower_bound
+|---|---|---|---|---|---|
+|10000|21|0.1|0.2|0.001|6e-5|
+|10000|31|0.1|0.2|0.491|0.352|
+|10000|21|0.1|0.3|0.6292|0.555|
+|10000|31|0.1|0.3|0.9877|0.983|
+|10000|21|0.1|0.4|0.9811|0.977|
+|10000|31|0.1|0.4|1.0|0.9998|
+
+At least for this very brief set of experiments, the lower bound seems to be working.
