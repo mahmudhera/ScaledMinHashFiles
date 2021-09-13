@@ -18,6 +18,15 @@ The results from running this script are the PDF files in this directory (from d
 1. combined3.pdf: L = 10^9
 1. combined4.pdf: L = 10^12
 
+**L=10^9**
+
+![plot1](plots-moment-generating/1.PNG)
+![plot2](plots-moment-generating/2.PNG)
+
+**L=10^12**
+
+![plot3](plots-moment-generating/3.PNG)
+
 These plots reveal the range of scale-factors and mutation-rates for which our confidence intervals are not going to have any trouble. It shows that with increased scale-factor, the probability of finding nothing common in the two sketches decreases. The plots also show that with larger mutation rate, we would need to use a larger scale-factor. We can also see that with increased k-mer size and decreased L, the range where our intervals work well shrinks, as expected.
 
 ### check_expected_probability_against_simulations.py
