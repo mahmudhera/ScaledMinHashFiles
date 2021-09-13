@@ -62,6 +62,14 @@ def variance_scaled_jaccard(L, p, k, s):
     
     return term1 + term2 - term3
 
+def exp_probability_path_case_taylor(L, k, p, s):
+    term1 = (1-s)**(L)
+    term2 = -1.0 * (1-s)**(L) * log(1-s) * exp_n_mutated(L, k, p)
+    term3 = 0.5 * (1-s)**(L) * ( log(1-s) )**2 * exp_n_mutated_squared(L, k, p)
+    term4 = -1.0/6.0 * (1-s)**(L) * ( log(1-s) )**3 * exp_n_mutated_cubed(L, k, p)
+    print (term1, term2, term3, term4)
+    return sum([term1, term2, term3, term4])
+
 def exp_probability_path_case_are_correction(L, k, p, s):
     mu = L * (1-p)**k
     sigma = sqrt(var_n_mutated(L, k, p))
@@ -115,6 +123,8 @@ if __name__ == '__main__':
     k_mer_lengths = [21, 31]
     num_k_mers_list = [10000]
     num_simulations = 1000
+    
+    exp_probability_path_case_taylor(10000, 21, 0.3, 0.1)
 
     for scale_factor in scale_factors:
         max_trials = int(1.0/scale_factor)+1

@@ -121,5 +121,19 @@ The idea is that, we are trying to calculate the expectation of *(1 - s)^(L - N_
 1. around *N_mut = L - L(1-p)^k* (the expected value of N_mut)
 1. around *N_mut = L*
 
-The expansions are done in the directory. A screenshot (to avoid recalculation) is provided.
+The expansions are done in the directory. A screenshot (to avoid recalculation) is provided. All of these expansions are correct. Computationally, the most tractable is around *N_mut = 0*. We have to first check if the terms in the expansion gradually decrease or not. If they do not decrease, we are in trouble.
 
+#### A test: verify that the terms in expansion are decreasing, otherwise, it is not converging
+
+Implemented code:
+
+```
+	term1 = (1-s)**(L)
+    term2 = -1.0 * (1-s)**(L) * log(1-s) * exp_n_mutated(L, k, p)
+    term3 = 0.5 * (1-s)**(L) * ( log(1-s) )**2 * exp_n_mutated_squared(L, k, p)
+    term4 = -1.0/6.0 * (1-s)**(L) * ( log(1-s) )**3 * exp_n_mutated_cubed(L, k, p)
+    print (term1, term2, term3, term4)
+    return sum([term1, term2, term3, term4])
+```
+
+These are the terms in the Taylor expansion around *N_mut = 0*. Setting L = 10000, *(1-s)^L* is always giving zero. Therefore, we may have to try expansion around some other point. *N_mut = Expectation(N_mut)* may be a good choice?
