@@ -121,5 +121,57 @@ The idea is that, we are trying to calculate the expectation of *(1 - s)^(L - N_
 1. around *N_mut = L - L(1-p)^k* (the expected value of N_mut)
 1. around *N_mut = L*
 
-The expansions are done in the directory. A screenshot (to avoid recalculation) is provided.
+Expansions around these three points give us:
+
+![Expansions](Taylor-expansion/readable.PNG)
+
+The expansions are done in the directory. A screenshot (to avoid recalculation) is provided. All of these expansions are correct. Computationally, the most tractable is around *N_mut = 0*. We have to first check if the terms in the expansion gradually decrease or not. If they do not decrease, we are in trouble.
+
+#### A test: verify that the terms in expansion are decreasing, otherwise, it is not converging
+
+Implemented code:
+
+```
+	term1 = (1-s)**(L)
+    term2 = -1.0 * (1-s)**(L) * log(1-s) * exp_n_mutated(L, k, p)
+    term3 = 0.5 * (1-s)**(L) * ( log(1-s) )**2 * exp_n_mutated_squared(L, k, p)
+    term4 = -1.0/6.0 * (1-s)**(L) * ( log(1-s) )**3 * exp_n_mutated_cubed(L, k, p)
+    print (term1, term2, term3, term4)
+    return sum([term1, term2, term3, term4])
+```
+
+These are the terms in the Taylor expansion around *N_mut = 0*. Setting L = 10000, *(1-s)^L* is always giving zero (all four terms are zero). Therefore, we may have to try expansion around some other point. *N_mut = Expectation(N_mut)* may be a good choice?
+
+Expanded around the mean, and implemented the code, we have:
+
+```
+def exp_probability_path_case_taylor(L, k, p, s):
+    c = exp_n_mutated(L, k, p)
+    term1 = (1-s)**(L-c)
+    term2 = -1.0 * (1-s)**(L-c) * log(1-s) * (exp_n_mutated(L, k, p) - c)
+    term3 = 0.5 * (1-s)**(L-c) * ( log(1-s) )**2 * (exp_n_mutated_squared(L, k, p) - c**2)
+    term4 = -1.0/6.0 * (1-s)**(L-c) * ( log(1-s) )**3 * (exp_n_mutated_cubed(L, k, p) - 3*c*exp_n_mutated_squared(L, k, p) + 2*c**3)
+    print (term1, term2, term3, term4)
+    return sum([term1, term2, term3, term4])
+```
+
+Setting **L=10k, p=0.1, s=0.1, k=21**, the four terms we get are:
+
+0.5551667263098173
+0.0
+0.09704498900245742
+-0.028507430896310162
+
+As we can see, the magnitude keeps decreasing. This seems to be a good choice. A nice thing is that the lower bound (proved by David using Jensen's inequality) is already here as the first term. Comparing this with simulations, we have the following results:
+
+|L|k|scale_factor|mutation_rate|estimated_from_experiments|estimated_from_formula
+|---|---|---|---|---|---|
+|10000|21|0.1|0.2|0.001|0.0002|
+|10000|31|0.1|0.2|0.506|0.444|
+|10000|21|0.1|0.3|0.637|0.623|
+|10000|31|0.1|0.3|0.991|0.987|
+|10000|21|0.1|0.4|0.975|0.981|
+|10000|31|0.1|0.4|1.0|0.999|
+
+Turns out, this is the best one. To show that this is the best, we show percentage discrepancy of one formula with the simulation average, and present them as follows:
 
