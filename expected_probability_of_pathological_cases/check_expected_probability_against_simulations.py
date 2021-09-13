@@ -112,6 +112,9 @@ def exp_probability_path_case(L, k, p, s):
         print (value1)
         print (value2)
 
+def get_percentage_deviation(estimated, target):
+    return 100.0 * (abs(estimated-target))/(abs(target))
+
 '''
 For 10k simulations, calculate if nothing common in the sketches. Count # of times
 this happens. Count the % of times this happens. Then compare and make a contrast
@@ -123,7 +126,7 @@ if __name__ == '__main__':
     confidence = 0.95
     k_mer_lengths = [21, 31]
     num_k_mers_list = [10000]
-    num_simulations = 1000
+    num_simulations = 2000
     
     for scale_factor in scale_factors:
         max_trials = int(1.0/scale_factor)+1
@@ -150,4 +153,9 @@ if __name__ == '__main__':
                            calculated_expected_probability,
                            calculated_expected_probability_david,
                            calculated_expected_probability_ac,
-                           calculated_expected_probability_taylor)
+                           calculated_expected_probability_taylor,
+                           get_percentage_deviation(calculated_expected_probability, estimated_expected_probability),
+                           get_percentage_deviation(calculated_expected_probability_david, estimated_expected_probability),
+                           get_percentage_deviation(calculated_expected_probability_ac, estimated_expected_probability),
+                           get_percentage_deviation(calculated_expected_probability_taylor, estimated_expected_probability)
+                           )
