@@ -113,3 +113,6 @@ At least for this very brief set of experiments, the lower bound seems to be wor
 
 In the meeting, we discussed that what we are currently doing is summing area of rectangles. However, we are not. We are directly integrating the PDF of Normal distribution. Therefore, I believe this is just a failed and misdirected idea.
 
+### Taylor expansion
+
+The idea is that, we are trying to calculate the expectation of (1 - s)^(L - N_mut). We can simply do a Taylor expansion and use linearity of expectation.
