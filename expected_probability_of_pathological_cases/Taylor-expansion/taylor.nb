@@ -1,0 +1,7 @@
+In[1]:= Series[(1-s)^(L-nMut), {nMut, 0, 10}]
+Out[1]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 nMut^4-1/120 ((1-s)^L Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8 nMut^8)/40320-(((1-s)^L Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11
+In[2]:= Series[(1-s)^(L-nMut), {nMut, c, 5}]
+Out[2]= (1-s)^(-c+L)-(1-s)^(-c+L) Log[1-s] (nMut-c)+1/2 (1-s)^(-c+L) Log[1-s]^2 (nMut-c)^2-1/6 ((1-s)^(-c+L) Log[1-s]^3) (nMut-c)^3+1/24 (1-s)^(-c+L) Log[1-s]^4 (nMut-c)^4-1/120 ((1-s)^(-c+L) Log[1-s]^5) (nMut-c)^5+O[nMut-c]^6
+
+In[3]:= Series[(1-s)^(L-nMut), {nMut, L - L*(1-p)^k, 10}]
+Out[3]= (1-s)^(L (1-p)^k)-(1-s)^(L (1-p)^k) Log[1-s] (nMut-L+L (1-p)^k)+1/2 (1-s)^(L (1-p)^k) Log[1-s]^2 (nMut-L+L (1-p)^k)^2-1/6 ((1-s)^(L (1-p)^k) Log[1-s]^3) (nMut-L+L (1-p)^k)^3+1/24 (1-s)^(L (1-p)^k) Log[1-s]^4 (nMut-L+L (1-p)^k)^4-1/120 ((1-s)^(L (1-p)^k) Log[1-s]^5) (nMut-L+L (1-p)^k)^5+1/720 (1-s)^(L (1-p)^k) Log[1-s]^6 (nMut-L+L (1-p)^k)^6-(((1-s)^(L (1-p)^k) Log[1-s]^7) (nMut-L+L (1-p)^k)^7)/5040+((1-s)^(L (1-p)^k) Log[1-s]^8 (nMut-L+L (1-p)^k)^8)/40320-(((1-s)^(L (1-p)^k) Log[1-s]^9) (nMut-L+L (1-p)^k)^9)/362880+((1-s)^(L (1-p)^k) Log[1-s]^10 (nMut-L+L (1-p)^k)^10)/3628800+O[nMut-L+L (1-p)^k]^11
