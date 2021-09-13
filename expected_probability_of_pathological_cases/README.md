@@ -136,4 +136,27 @@ Implemented code:
     return sum([term1, term2, term3, term4])
 ```
 
-These are the terms in the Taylor expansion around *N_mut = 0*. Setting L = 10000, *(1-s)^L* is always giving zero. Therefore, we may have to try expansion around some other point. *N_mut = Expectation(N_mut)* may be a good choice?
+These are the terms in the Taylor expansion around *N_mut = 0*. Setting L = 10000, *(1-s)^L* is always giving zero (all four terms are zero). Therefore, we may have to try expansion around some other point. *N_mut = Expectation(N_mut)* may be a good choice?
+
+Expanded around the mean, and implemented the code, we have:
+
+```
+def exp_probability_path_case_taylor(L, k, p, s):
+    c = exp_n_mutated(L, k, p)
+    term1 = (1-s)**(L-c)
+    term2 = -1.0 * (1-s)**(L-c) * log(1-s) * (exp_n_mutated(L, k, p) - c)
+    term3 = 0.5 * (1-s)**(L-c) * ( log(1-s) )**2 * (exp_n_mutated_squared(L, k, p) - c**2)
+    term4 = -1.0/6.0 * (1-s)**(L-c) * ( log(1-s) )**3 * (exp_n_mutated_cubed(L, k, p) - 3*c*exp_n_mutated_squared(L, k, p) + 2*c**3)
+    print (term1, term2, term3, term4)
+    return sum([term1, term2, term3, term4])
+```
+
+Setting **L=10k, p=0.1, s=0.1, k=21**, the four terms we get are:
+
+0.5551667263098173
+0.0
+0.09704498900245742
+-0.028507430896310162
+
+As we can see, the magnitude keeps decreasing. This seems to be a good choice. A nice thing is that the lower bound (proved by David using Jensen's inequality) is already here as the first term. Comparing this with simulations, we have the following results:
+

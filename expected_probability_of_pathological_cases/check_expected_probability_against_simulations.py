@@ -63,11 +63,12 @@ def variance_scaled_jaccard(L, p, k, s):
     return term1 + term2 - term3
 
 def exp_probability_path_case_taylor(L, k, p, s):
-    term1 = (1-s)**(L)
-    term2 = -1.0 * (1-s)**(L) * log(1-s) * exp_n_mutated(L, k, p)
-    term3 = 0.5 * (1-s)**(L) * ( log(1-s) )**2 * exp_n_mutated_squared(L, k, p)
-    term4 = -1.0/6.0 * (1-s)**(L) * ( log(1-s) )**3 * exp_n_mutated_cubed(L, k, p)
-    print (term1, term2, term3, term4)
+    c = exp_n_mutated(L, k, p)
+    term1 = (1-s)**(L-c)
+    term2 = -1.0 * (1-s)**(L-c) * log(1-s) * (exp_n_mutated(L, k, p) - c)
+    term3 = 0.5 * (1-s)**(L-c) * ( log(1-s) )**2 * (exp_n_mutated_squared(L, k, p) - c**2)
+    term4 = -1.0/6.0 * (1-s)**(L-c) * ( log(1-s) )**3 * (exp_n_mutated_cubed(L, k, p) - 3*c*exp_n_mutated_squared(L, k, p) + 2*c**3)
+    #print (term1, term2, term3, term4)
     return sum([term1, term2, term3, term4])
 
 def exp_probability_path_case_are_correction(L, k, p, s):
@@ -124,8 +125,6 @@ if __name__ == '__main__':
     num_k_mers_list = [10000]
     num_simulations = 1000
     
-    exp_probability_path_case_taylor(10000, 21, 0.3, 0.1)
-
     for scale_factor in scale_factors:
         max_trials = int(1.0/scale_factor)+1
         for num_k_mers in num_k_mers_list:
@@ -146,7 +145,9 @@ if __name__ == '__main__':
                     calculated_expected_probability = exp_probability_path_case(num_k_mers, k_mer_length, mutation_rate, scale_factor)
                     calculated_expected_probability_david = exp_probability_path_case_david(num_k_mers, k_mer_length, mutation_rate, scale_factor)
                     calculated_expected_probability_ac = exp_probability_path_case_are_correction(num_k_mers, k_mer_length, mutation_rate, scale_factor)
+                    calculated_expected_probability_taylor = exp_probability_path_case_taylor(num_k_mers, k_mer_length, mutation_rate, scale_factor)
                     print (estimated_expected_probability, 
                            calculated_expected_probability,
                            calculated_expected_probability_david,
-                           calculated_expected_probability_ac)
+                           calculated_expected_probability_ac,
+                           calculated_expected_probability_taylor)
