@@ -117,7 +117,9 @@ In the meeting, we discussed that what we are currently doing is summing area of
 
 The idea is that, we are trying to calculate the expectation of *(1 - s)^(L - N_mut)*. We can simply do a Taylor expansion and use linearity of expectation. We have multiple options for choosing the point, around which, we will do the series expansion. For now, I am thinking about trying:
 
-1. around N_mut = 0
-1. around N_mut = L - L(1-p)^k (the expected value of N_mut)
-1. around N_mut = L
+1. around *N_mut = 0*
+1. around *N_mut = L - L(1-p)^k* (the expected value of N_mut)
+1. around *N_mut = L*
+
+The expansions are done in the directory. A screenshot (to avoid recalculation) is provided.
 
