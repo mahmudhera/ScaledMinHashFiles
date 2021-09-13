@@ -108,3 +108,8 @@ Indeed, by matching with simulations, we see the following:
 |10000|31|0.1|0.4|1.0|0.9998|
 
 At least for this very brief set of experiments, the lower bound seems to be working.
+
+### Using trapezoidal rules for area correction
+
+In the meeting, we discussed that what we are currently doing is summing area of rectangles. However, we are not. We are directly integrating the PDF of Normal distribution. Therefore, I believe this is just a failed and misdirected idea.
+
