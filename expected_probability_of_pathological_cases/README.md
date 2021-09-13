@@ -39,5 +39,57 @@ with the value we have from formula. The results are as follows:
 
 With these results, we can conclude that this formula has something seriously wrong. We need to figure that out.
 
+##### Problems:
+1. Discrepancy in the figures in this table
+1. The problem we have is: we have an expression for the expected probability of nothing common in sketches. The formula has some issues. At scale_factor = 0, the probability rises, then falls. Conceptually, it should just be 1.0, as we are making sure that there is nothing common in the sketches.
+
+#### Ideas
+
 1. Try the PDF
 1. Consider two random processes at the same time
+1. Try area correction
+1. Taylor expansion
+1. Check literature for PMF of sum of m-dependent Bernouli
+
+
+### Area correction
+Sep 8, 2021
+
+When we approximate a discrete distribution (for example, N_mut) with a continuous distribution (such as the normal distribution), we often have to do area correction. By using that, probability(N_mut = n) = intergration of continuous PDF from n-0.5 to n+0.5. The range of N_mut is [0, L]. Therefore, we scale the PMF by scaling with a factor of the integration from -0.5 to L+0.5.
+
+This is implemented the file `check_expected_probability_against_simulations.py` as follows:
+
+```
+def exp_probability_path_case_are_correction(L, k, p, s):
+    mu = L * (1-p)**k
+    sigma = sqrt(var_n_mutated(L, k, p))
+    f = lambda a, b: 0.5 * ( erf( (mu-a)/(sqrt(2)*sigma) ) - erf( (mu-b)/(sqrt(2)*sigma) ) )
+    delta = f(-0.5, L+0.5)
+    probability = lambda n: f(n-0.5, n+0.5)/delta
+    expected_probability = 0.0
+    for n in range(L+1):
+        expected_probability += ((1-s)**n)*probability(n)
+    return expected_probability
+```
+
+Implementation notes: `f = lambda a, b: 0.5 * ( erf( (mu-a)/(sqrt(2)*sigma) ) - erf( (mu-b)/(sqrt(2)*sigma) ) )` is the integral from a to b.
+
+After implementing this, we calculated the expected probability from multiple simulations, and compared with what we get from the formula. The results are as follows.
+
+|L|k|scale_factor|mutation_rate|estimated_from_experiments|estimated_from_formula
+|---|---|---|---|---|---|
+|10000|21|0.1|0.2|0.001|0.003|
+|10000|31|0.1|0.2|0.491|0.362|
+|10000|21|0.1|0.3|0.6292|0.529|
+|10000|31|0.1|0.3|0.9877|0.942|
+|10000|21|0.1|0.4|0.9811|0.940|
+|10000|31|0.1|0.4|1.0|0.999|
+
+This shows that there is still room for improvement.
+
+
+### What are we doing in this file?
+
+In this file, we calculate the precise probability that N_mut = 0, 1 and 2. Then, we calculate the same probability from normal distribution. Finally, we try to understand if working with area correction can make things better.
+
+### Results
