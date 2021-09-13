@@ -186,3 +186,14 @@ Turns out, this is the best formula, compared to the others we did before.
 
 
 To show that this is the best, we show percentage discrepancy of each formula with the simulation average, and present them as follows:
+
+|L|k|sc_factor|mut_rate|% deviation moment_gen|% deviation lower_bound|% deviation area_correctn|% deviation taylor|
+|---|---|---|---|---|---|---|---|
+|10000|21|0.1|0.2|99.14614161|95.98648258|101.4137373|86.23308153
+|10000|31|0.1|0.2|38.22870793|27.96709933|25.79456499|9.157825774
+|10000|21|0.1|0.3|30.83649938|11.59765505|15.76026469|0.684031144
+|10000|31|0.1|0.3|47.21544768|0.302675221|4.448155581|0.045718123
+|10000|21|0.1|0.4|44.35784874|0.035583387|3.814211724|0.350866473
+|10000|31|0.1|0.4|49.58515992|0.013974501|3.78E-11|0.011744305
+
+Next stepwould be to calculate the PMF directly and see if we can get some improvements.
