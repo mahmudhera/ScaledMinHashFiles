@@ -176,6 +176,7 @@ As we can see, the magnitude keeps decreasing. This seems to be a good choice. A
 Turns out, this is the best formula, compared to the others we did before.
 
 |L|k|sc_factor|mut_rate|estim_from_expt|moment_gen|lower_bound|area_correctn|taylor|
+|---|---|---|---|---|---|---|---|---|
 |10000|21|0.1|0.2|0.0015	|0.002987192	|6.02E-05		|0.003021206	|0.000206504
 |10000|31|0.1|0.2|0.489	|0.302061618	|0.352240884	|0.362864577	|0.444218232
 |10000|21|0.1|0.3|0.628	|0.434346784	|0.555166726	|0.529025538	|0.623704284
