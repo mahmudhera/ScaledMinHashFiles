@@ -125,7 +125,7 @@ Expansions around these three points give us:
 
 ![Expansions](Taylor-expansion/readable.PNG)
 
-The expansions are done in the directory. A screenshot (to avoid recalculation) is provided. All of these expansions are correct. Computationally, the most tractable is around *N_mut = 0*. We have to first check if the terms in the expansion gradually decrease or not. If they do not decrease, we are in trouble.
+All of these expansions are correct. Computationally, the most tractable is around *N_mut = 0*. We have to first check if the terms in the expansion gradually decrease or not. If they do not decrease, we are in trouble.
 
 #### A test: verify that the terms in expansion are decreasing, otherwise, it is not converging
 
@@ -173,5 +173,15 @@ As we can see, the magnitude keeps decreasing. This seems to be a good choice. A
 |10000|21|0.1|0.4|0.975|0.981|
 |10000|31|0.1|0.4|1.0|0.999|
 
-Turns out, this is the best one. To show that this is the best, we show percentage discrepancy of one formula with the simulation average, and present them as follows:
+Turns out, this is the best formula, compared to the others we did before.
 
+|L|k|sc_factor|mut_rate|estim_from_expt|moment_gen|lower_bound|area_correctn|taylor|
+|10000|21|0.1|0.2|0.0015	|0.002987192	|6.02E-05		|0.003021206	|0.000206504
+|10000|31|0.1|0.2|0.489	|0.302061618	|0.352240884	|0.362864577	|0.444218232
+|10000|21|0.1|0.3|0.628	|0.434346784	|0.555166726	|0.529025538	|0.623704284
+|10000|31|0.1|0.3|0.9865	|0.520719609	|0.983514109	|0.942618945	|0.986951009
+|10000|21|0.1|0.4|0.9775	|0.543902029	|0.977152172	|0.94021608		|0.98092972
+|10000|31|0.1|0.4|1		|0.504148401	|0.999860255	|1				|0.999882557
+
+
+To show that this is the best, we show percentage discrepancy of each formula with the simulation average, and present them as follows:
