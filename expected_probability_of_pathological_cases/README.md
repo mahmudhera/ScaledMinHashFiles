@@ -209,4 +209,9 @@ Next stepwould be to calculate the PMF directly and see if we can get some impro
 
 ** Unfortunately, calculating the PDF is not so simple! Perhaps we have to be content with the formula derived by taking expectation after doing Taylor series expansion. **
 
-Next: plot Taylor and save them.
+Plotting the formula obtained from using Taylor approximation, we get the following:
+
+![plot1](plots-taylor/1.PNG)
+
+This seems counter-intuitive. We have some explaining to do regarding this!
+

@@ -52,6 +52,14 @@ def f2(L, N, z_alpha, s):
 def func(L, N):
     return L*L + N*N - 6*N*L
 
+def exp_probability_path_case_taylor(L, k, p, s):
+    c = exp_n_mutated(L, k, p)
+    term1 = (1-s)**(L-c)
+    term2 = -1.0 * (1-s)**(L-c) * log(1-s) * (exp_n_mutated(L, k, p) - c)
+    term3 = 0.5 * (1-s)**(L-c) * ( log(1-s) )**2 * (exp_n_mutated_squared(L, k, p) - c**2)
+    term4 = -1.0/6.0 * (1-s)**(L-c) * ( log(1-s) )**3 * (exp_n_mutated_cubed(L, k, p) - 3*c*exp_n_mutated_squared(L, k, p) + 2*c**3)
+    #print (term1, term2, term3, term4)
+    return sum([term1, term2, term3, term4])
 
 def variance_scaled_jaccard(L, p, k, s):
     exp_n_mut = thm5.exp_n_mutated(L, k, p)
@@ -99,7 +107,7 @@ def exp_probability_path_case(L, k, p, s):
 confidence = 0.95
 alpha = 1 - confidence
 z_alpha = probit(1-alpha/2)
-L = 10000000
+L = 1000000
 s = 0.01
 k = 21
 p = 0.35
@@ -109,7 +117,7 @@ probabilities, scale_factors = np.mgrid[0.01:0.99:100j, 0.01:0.99:100j]
 k_mer_sizes = [ 21, 31, 51 ]
 k_mer_size = 21
 
-V = np.vectorize(exp_probability_path_case)
+V = np.vectorize(exp_probability_path_case_taylor)
 
 elevation_angle, z_axis_angle = 10, 150
 
@@ -143,7 +151,7 @@ ax.set_xlabel('Mutation rate')
 ax.set_ylabel('Scale factor')
 ax.set_zlabel('Expected probability')
 
-plt.savefig('combined_temp.pdf')
+plt.savefig('combined_taylor.pdf')
 
 # expected probability that there is nothing common after taking the sketch
 '''
