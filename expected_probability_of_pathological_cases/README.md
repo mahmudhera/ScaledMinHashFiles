@@ -206,3 +206,7 @@ To show that this is the best, we show percentage discrepancy of each formula wi
 |10000|31|0.1|0.4|49.58515992|0.013974501|3.78E-11|0.011744305
 
 Next stepwould be to calculate the PMF directly and see if we can get some improvements.
+
+** Unfortunately, calculating the PDF is not so simple! Perhaps we have to be content with the formula derived by taking expectation after doing Taylor series expansion. **
+
+Next: plot Taylor and save them.
