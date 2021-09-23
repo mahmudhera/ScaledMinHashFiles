@@ -1,0 +1,1 @@
+This is a simple mutation model, just written in C++ to optimize performance of the mutation model. It takes around 5 minutes to calculate scaled jaccard index for L = 10^9. We generated 1000 simulations and gathered results to test the confidence interval from jaccard.
