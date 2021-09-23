@@ -209,4 +209,17 @@ Next stepwould be to calculate the PMF directly and see if we can get some impro
 
 ** Unfortunately, calculating the PDF is not so simple! Perhaps we have to be content with the formula derived by taking expectation after doing Taylor series expansion. **
 
-Next: plot Taylor and save them.
+Plotting the formula obtained from using Taylor approximation, we get the following:
+
+L = 10^6
+![plot1](plots-taylor/1.PNG)
+
+The negative values do not make much sense. It could be that: if we took more terms in the Taylor expansion, these would converge to zero. As a quick fix, I just wrote `max(value, 0)`. That is, negative values are just replaced by zero. What we get is as follows:
+
+L = 10^6
+![plot1](plots-taylor/2.PNG)
+
+If we decrease L, we get the following.
+
+L = 10k
+![plot1](plots-taylor/3.PNG)
