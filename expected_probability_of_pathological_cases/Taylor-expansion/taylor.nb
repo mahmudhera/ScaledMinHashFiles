@@ -1,7 +1,518 @@
+In[1]:=
+In[1]:=
+
+In[14]:=
+
+
+
 In[1]:= Series[(1-s)^(L-nMut), {nMut, 0, 10}]
+
+
+
+
+
+
+
 Out[1]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 nMut^4-1/120 ((1-s)^L Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8 nMut^8)/40320-(((1-s)^L Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11
+
+
+
+
+
+
+
 In[2]:= Series[(1-s)^(L-nMut), {nMut, c, 5}]
+
+
+
+
+
+
+
 Out[2]= (1-s)^(-c+L)-(1-s)^(-c+L) Log[1-s] (nMut-c)+1/2 (1-s)^(-c+L) Log[1-s]^2 (nMut-c)^2-1/6 ((1-s)^(-c+L) Log[1-s]^3) (nMut-c)^3+1/24 (1-s)^(-c+L) Log[1-s]^4 (nMut-c)^4-1/120 ((1-s)^(-c+L) Log[1-s]^5) (nMut-c)^5+O[nMut-c]^6
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 In[3]:= Series[(1-s)^(L-nMut), {nMut, L - L*(1-p)^k, 10}]
+
+
+
+
+
+
+
 Out[3]= (1-s)^(L (1-p)^k)-(1-s)^(L (1-p)^k) Log[1-s] (nMut-L+L (1-p)^k)+1/2 (1-s)^(L (1-p)^k) Log[1-s]^2 (nMut-L+L (1-p)^k)^2-1/6 ((1-s)^(L (1-p)^k) Log[1-s]^3) (nMut-L+L (1-p)^k)^3+1/24 (1-s)^(L (1-p)^k) Log[1-s]^4 (nMut-L+L (1-p)^k)^4-1/120 ((1-s)^(L (1-p)^k) Log[1-s]^5) (nMut-L+L (1-p)^k)^5+1/720 (1-s)^(L (1-p)^k) Log[1-s]^6 (nMut-L+L (1-p)^k)^6-(((1-s)^(L (1-p)^k) Log[1-s]^7) (nMut-L+L (1-p)^k)^7)/5040+((1-s)^(L (1-p)^k) Log[1-s]^8 (nMut-L+L (1-p)^k)^8)/40320-(((1-s)^(L (1-p)^k) Log[1-s]^9) (nMut-L+L (1-p)^k)^9)/362880+((1-s)^(L (1-p)^k) Log[1-s]^10 (nMut-L+L (1-p)^k)^10)/3628800+O[nMut-L+L (1-p)^k]^11
+
+
+
+During evaluation of In[14]:= SetDelayed::write: Tag In in In[1] is Protected.
+
+
+
+Out[14]= $Failed
+
+
+
+During evaluation of In[14]:= Set::write: Tag Out in %1 is Protected.
+
+
+
+Out[16]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 nMut^4-1/120 ((1-s)^L Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8 nMut^8)/40320-(((1-s)^L Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11
+
+
+
+During evaluation of In[14]:= SetDelayed::write: Tag In in In[2] is Protected.
+
+
+
+Out[18]= $Failed
+
+
+
+During evaluation of In[14]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+
+
+
+During evaluation of In[14]:= Set::write: Tag Out in %2 is Protected.
+
+
+
+Out[20]= (1-s)^(-c+L)-(-c+nMut) (1-s)^(-c+L) Log[1-s]+1/2 (-c+nMut)^2 (1-s)^(-c+L) Log[1-s]^2-1/6 (-c+nMut)^3 (1-s)^(-c+L) Log[1-s]^3+1/24 (-c+nMut)^4 (1-s)^(-c+L) Log[1-s]^4-1/120 (-c+nMut)^5 (1-s)^(-c+L) Log[1-s]^5+(O[-c+nMut]^1)^6
+
+
+
+During evaluation of In[14]:= SetDelayed::write: Tag In in In[3] is Protected.
+
+
+
+Out[24]= $Failed
+
+
+
+During evaluation of In[14]:= SeriesData::sdatv: First argument -L+nMut+L (1-p)^k is not a valid variable.
+
+
+
+During evaluation of In[14]:= Set::write: Tag Out in %3 is Protected.
+
+
+
+Out[26]= (1-s)^(L (1-p)^k)-(-L+nMut+L (1-p)^k) (1-s)^(L (1-p)^k) Log[1-s]+1/2 (-L+nMut+L (1-p)^k)^2 (1-s)^(L (1-p)^k) Log[1-s]^2-1/6 (-L+nMut+L (1-p)^k)^3 (1-s)^(L (1-p)^k) Log[1-s]^3+1/24 (-L+nMut+L (1-p)^k)^4 (1-s)^(L (1-p)^k) Log[1-s]^4-1/120 (-L+nMut+L (1-p)^k)^5 (1-s)^(L (1-p)^k) Log[1-s]^5+1/720 (-L+nMut+L (1-p)^k)^6 (1-s)^(L (1-p)^k) Log[1-s]^6-((-L+nMut+L (1-p)^k)^7 (1-s)^(L (1-p)^k) Log[1-s]^7)/5040+((-L+nMut+L (1-p)^k)^8 (1-s)^(L (1-p)^k) Log[1-s]^8)/40320-((-L+nMut+L (1-p)^k)^9 (1-s)^(L (1-p)^k) Log[1-s]^9)/362880+((-L+nMut+L (1-p)^k)^10 (1-s)^(L (1-p)^k) Log[1-s]^10)/3628800+(O[-L+nMut+L (1-p)^k]^1)^11
+
+
+
+In[27]:= Series[s^(L-nMut), {nMut, c, 5}]
+
+
+
+Out[27]= s^(-c+L)-s^(-c+L) Log[s] (nMut-c)+1/2 s^(-c+L) Log[s]^2 (nMut-c)^2-1/6 (s^(-c+L) Log[s]^3) (nMut-c)^3+1/24 s^(-c+L) Log[s]^4 (nMut-c)^4-1/120 (s^(-c+L) Log[s]^5) (nMut-c)^5+O[nMut-c]^6
+
+
+
+In[30]:= Evaluate[Log[5]^2]
+
+
+
+Out[30]= Log[5]^2
+
+
+
+In[31]:= N[Log[5]^2,5]
+
+
+
+Out[31]= 2.5903
+
+
+
+In[32]:= N[Log[25], 5]
+
+
+
+Out[32]= 3.2189
+
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[14] is Protected.
+
+Out[1]= $Failed
+
+During evaluation of In[1]:= Set::write: Tag Out in %1 is Protected.
+
+Out[5]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 nMut^4-1/120 ((1-s)^L Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8 nMut^8)/40320-(((1-s)^L Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11
+
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[2] is Protected.
+
+Out[9]= $Failed
+
+During evaluation of In[1]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+
+During evaluation of In[1]:= Set::write: Tag Out in %2 is Protected.
+
+Out[13]= (1-s)^(-c+L)-(-c+nMut) (1-s)^(-c+L) Log[1-s]+1/2 (-c+nMut)^2 (1-s)^(-c+L) Log[1-s]^2-1/6 (-c+nMut)^3 (1-s)^(-c+L) Log[1-s]^3+1/24 (-c+nMut)^4 (1-s)^(-c+L) Log[1-s]^4-1/120 (-c+nMut)^5 (1-s)^(-c+L) Log[1-s]^5+(O[-c+nMut]^1)^6
+
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[3] is Protected.
+
+Out[21]= $Failed
+
+During evaluation of In[1]:= SeriesData::sdatv: First argument -L+nMut+L (1-p)^k is not a valid variable.
+
+During evaluation of In[1]:= Set::write: Tag Out in %3 is Protected.
+
+Out[25]= (1-s)^(L (1-p)^k)-(-L+nMut+L (1-p)^k) (1-s)^(L (1-p)^k) Log[1-s]+1/2 (-L+nMut+L (1-p)^k)^2 (1-s)^(L (1-p)^k) Log[1-s]^2-1/6 (-L+nMut+L (1-p)^k)^3 (1-s)^(L (1-p)^k) Log[1-s]^3+1/24 (-L+nMut+L (1-p)^k)^4 (1-s)^(L (1-p)^k) Log[1-s]^4-1/120 (-L+nMut+L (1-p)^k)^5 (1-s)^(L (1-p)^k) Log[1-s]^5+1/720 (-L+nMut+L (1-p)^k)^6 (1-s)^(L (1-p)^k) Log[1-s]^6-((-L+nMut+L (1-p)^k)^7 (1-s)^(L (1-p)^k) Log[1-s]^7)/5040+((-L+nMut+L (1-p)^k)^8 (1-s)^(L (1-p)^k) Log[1-s]^8)/40320-((-L+nMut+L (1-p)^k)^9 (1-s)^(L (1-p)^k) Log[1-s]^9)/362880+((-L+nMut+L (1-p)^k)^10 (1-s)^(L (1-p)^k) Log[1-s]^10)/3628800+(O[-L+nMut+L (1-p)^k]^1)^11
+
+During evaluation of In[1]:=
+
+Syntax::sntxf: "" cannot be followed by " 0, 10}]".
+
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[14] is Protected.
+
+During evaluation of In[1]:= Set::write: Tag Times in in In is Tag $Failed Protected.Null is Protected.
+
+Out[27]= $Failed
+
+During evaluation of In[1]:=
+
+Syntax::sntxf: "" cannot be followed by " {nMut, 0, 10}]".
+
+During evaluation of In[1]:= Set::write: Tag Times in in is Out Tag $Failed Protected.Null is Protected.
+
+Out[29]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 nMut^4-1/120 ((1-s)^L Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8 nMut^8)/40320-(((1-s)^L Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11
+
+During evaluation of In[1]:=
+
+Syntax::sntxf: "" cannot be followed by " 0, 10}]".
+
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.Null is Protected.
+
+Out[31]= $Failed
+
+During evaluation of In[1]:=
+
+Syntax::sntxf: "" cannot be followed by " 0, 10}]".
+
+During evaluation of In[1]:=
+
+Syntax::sntxf: "" cannot be followed by "] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4
+
+      nMut^4-1/120 ((1-s)^L Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8
+
+      nMut^8)/40320-(((1-s)^L Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+
+During evaluation of In[1]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+
+During evaluation of In[1]:= Set::write: Tag Times in in is Null Out Tag Protected.Null is Protected.
+
+Out[33]= (1-s)^(-c+L)-(-c+nMut) (1-s)^(-c+L) Log[1-s]+1/2 (-c+nMut)^2 (1-s)^(-c+L) Log[1-s]^2-1/6 (-c+nMut)^3 (1-s)^(-c+L) Log[1-s]^3+1/24 (-c+nMut)^4 (1-s)^(-c+L) Log[1-s]^4-1/120 (-c+nMut)^5 (1-s)^(-c+L) Log[1-s]^5+(O[-c+nMut]^1)^6
+
+During evaluation of In[1]:=
+
+Syntax::sntxf: "" cannot be followed by " 0, 10}]".
+
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.Null is Protected.
+
+Out[35]= $Failed
+
+During evaluation of In[1]:=
+
+Syntax::sntxf: "" cannot be followed by " 0, 10}]".
+
+During evaluation of In[1]:=
+
+Syntax::sntxf: "" cannot be followed by " (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 nMut^4-1/120 ((1-s)^L
+
+      Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8 nMut^8)/40320-(((1-s)^L
+
+      Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+
+During evaluation of In[1]:= SeriesData::sdatv: First argument -L+nMut+L (1-p)^k is not a valid variable.
+
+During evaluation of In[1]:= Set::write: Tag Times in in is Null Out Tag Protected.Null is Protected.
+
+Out[37]= (1-s)^(L (1-p)^k)-(-L+nMut+L (1-p)^k) (1-s)^(L (1-p)^k) Log[1-s]+1/2 (-L+nMut+L (1-p)^k)^2 (1-s)^(L (1-p)^k) Log[1-s]^2-1/6 (-L+nMut+L (1-p)^k)^3 (1-s)^(L (1-p)^k) Log[1-s]^3+1/24 (-L+nMut+L (1-p)^k)^4 (1-s)^(L (1-p)^k) Log[1-s]^4-1/120 (-L+nMut+L (1-p)^k)^5 (1-s)^(L (1-p)^k) Log[1-s]^5+1/720 (-L+nMut+L (1-p)^k)^6 (1-s)^(L (1-p)^k) Log[1-s]^6-((-L+nMut+L (1-p)^k)^7 (1-s)^(L (1-p)^k) Log[1-s]^7)/5040+((-L+nMut+L (1-p)^k)^8 (1-s)^(L (1-p)^k) Log[1-s]^8)/40320-((-L+nMut+L (1-p)^k)^9 (1-s)^(L (1-p)^k) Log[1-s]^9)/362880+((-L+nMut+L (1-p)^k)^10 (1-s)^(L (1-p)^k) Log[1-s]^10)/3628800+(O[-L+nMut+L (1-p)^k]^1)^11
+
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[27] is Protected.
+
+Out[39]= $Failed
+
+During evaluation of In[1]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+
+During evaluation of In[1]:= Set::write: Tag Out in %27 is Protected.
+
+Out[41]= s^(-c+L)-(-c+nMut) s^(-c+L) Log[s]+1/2 (-c+nMut)^2 s^(-c+L) Log[s]^2-1/6 (-c+nMut)^3 s^(-c+L) Log[s]^3+1/24 (-c+nMut)^4 s^(-c+L) Log[s]^4-1/120 (-c+nMut)^5 s^(-c+L) Log[s]^5+(O[-c+nMut]^1)^6
+
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[30] is Protected.
+
+Out[43]= $Failed
+
+During evaluation of In[1]:= Set::write: Tag Out in %30 is Protected.
+
+Out[45]= Log[5]^2
+
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[31] is Protected.
+
+Out[47]= $Failed
+
+During evaluation of In[1]:= Set::write: Tag Out in %31 is Protected.
+
+Out[49]= 2.5903
+
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[32] is Protected.
+
+Out[51]= $Failed
+
+During evaluation of In[1]:= Set::write: Tag Out in %32 is Protected.
+
+Out[53]= 3.2189
+
+In[55]:= Series[(1-s)^(2 nMut), {nMut, c, 5}]
+
+Out[55]= (1-s)^(2 c)+2 (1-s)^(2 c) Log[1-s] (nMut-c)+2 (1-s)^(2 c) Log[1-s]^2 (nMut-c)^2+4/3 (1-s)^(2 c) Log[1-s]^3 (nMut-c)^3+2/3 (1-s)^(2 c) Log[1-s]^4 (nMut-c)^4+4/15 (1-s)^(2 c) Log[1-s]^5 (nMut-c)^5+O[nMut-c]^6
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[1] is Protected.
+Out[1]= $Failed
+During evaluation of In[1]:= Set::write: Tag Out in %1 is Protected.
+Out[9]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 nMut^4-1/120 ((1-s)^L Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8 nMut^8)/40320-(((1-s)^L Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[2] is Protected.
+Out[17]= $Failed
+During evaluation of In[1]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Out in %2 is Protected.
+Out[25]= (1-s)^(-c+L)-(-c+nMut) (1-s)^(-c+L) Log[1-s]+1/2 (-c+nMut)^2 (1-s)^(-c+L) Log[1-s]^2-1/6 (-c+nMut)^3 (1-s)^(-c+L) Log[1-s]^3+1/24 (-c+nMut)^4 (1-s)^(-c+L) Log[1-s]^4-1/120 (-c+nMut)^5 (1-s)^(-c+L) Log[1-s]^5+(O[-c+nMut]^1)^6
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[3] is Protected.
+Out[41]= $Failed
+During evaluation of In[1]:= SeriesData::sdatv: First argument -L+nMut+L (1-p)^k is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Out in %3 is Protected.
+Out[49]= (1-s)^(L (1-p)^k)-(-L+nMut+L (1-p)^k) (1-s)^(L (1-p)^k) Log[1-s]+1/2 (-L+nMut+L (1-p)^k)^2 (1-s)^(L (1-p)^k) Log[1-s]^2-1/6 (-L+nMut+L (1-p)^k)^3 (1-s)^(L (1-p)^k) Log[1-s]^3+1/24 (-L+nMut+L (1-p)^k)^4 (1-s)^(L (1-p)^k) Log[1-s]^4-1/120 (-L+nMut+L (1-p)^k)^5 (1-s)^(L (1-p)^k) Log[1-s]^5+1/720 (-L+nMut+L (1-p)^k)^6 (1-s)^(L (1-p)^k) Log[1-s]^6-((-L+nMut+L (1-p)^k)^7 (1-s)^(L (1-p)^k) Log[1-s]^7)/5040+((-L+nMut+L (1-p)^k)^8 (1-s)^(L (1-p)^k) Log[1-s]^8)/40320-((-L+nMut+L (1-p)^k)^9 (1-s)^(L (1-p)^k) Log[1-s]^9)/362880+((-L+nMut+L (1-p)^k)^10 (1-s)^(L (1-p)^k) Log[1-s]^10)/3628800+(O[-L+nMut+L (1-p)^k]^1)^11
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "ut), {nMut, 0, 10}]".
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[1] is Protected.
+During evaluation of In[1]:= Set::write: Tag Times in in In is Tag $Failed Protected.Null is Protected.
+Out[53]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by ")^(L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in is Out Tag $Failed Protected.Null is Protected.
+Out[57]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 nMut^4-1/120 ((1-s)^L Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8 nMut^8)/40320-(((1-s)^L Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "ut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.Null is Protected.
+Out[61]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "ut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6
+       ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L L<<189>>((1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Times in in is Null Out Tag Protected.Null is Protected.
+Out[65]= (1-s)^(-c+L)-(-c+nMut) (1-s)^(-c+L) Log[1-s]+1/2 (-c+nMut)^2 (1-s)^(-c+L) Log[1-s]^2-1/6 (-c+nMut)^3 (1-s)^(-c+L) Log[1-s]^3+1/24 (-c+nMut)^4 (1-s)^(-c+L) Log[1-s]^4-1/120 (-c+nMut)^5 (1-s)^(-c+L) Log[1-s]^5+(O[-c+nMut]^1)^6
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "ut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.Null is Protected.
+Out[69]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "ut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L
+       Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 <<179>>((1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:= SeriesData::sdatv: First argument -L+nMut+L (1-p)^k is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Times in in is Null Out Tag Protected.Null is Protected.
+Out[73]= (1-s)^(L (1-p)^k)-(-L+nMut+L (1-p)^k) (1-s)^(L (1-p)^k) Log[1-s]+1/2 (-L+nMut+L (1-p)^k)^2 (1-s)^(L (1-p)^k) Log[1-s]^2-1/6 (-L+nMut+L (1-p)^k)^3 (1-s)^(L (1-p)^k) Log[1-s]^3+1/24 (-L+nMut+L (1-p)^k)^4 (1-s)^(L (1-p)^k) Log[1-s]^4-1/120 (-L+nMut+L (1-p)^k)^5 (1-s)^(L (1-p)^k) Log[1-s]^5+1/720 (-L+nMut+L (1-p)^k)^6 (1-s)^(L (1-p)^k) Log[1-s]^6-((-L+nMut+L (1-p)^k)^7 (1-s)^(L (1-p)^k) Log[1-s]^7)/5040+((-L+nMut+L (1-p)^k)^8 (1-s)^(L (1-p)^k) Log[1-s]^8)/40320-((-L+nMut+L (1-p)^k)^9 (1-s)^(L (1-p)^k) Log[1-s]^9)/362880+((-L+nMut+L (1-p)^k)^10 (1-s)^(L (1-p)^k) Log[1-s]^10)/3628800+(O[-L+nMut+L (1-p)^k]^1)^11
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[27] is Protected.
+Out[77]= $Failed
+During evaluation of In[1]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Out in %27 is Protected.
+Out[81]= s^(-c+L)-(-c+nMut) s^(-c+L) Log[s]+1/2 (-c+nMut)^2 s^(-c+L) Log[s]^2-1/6 (-c+nMut)^3 s^(-c+L) Log[s]^3+1/24 (-c+nMut)^4 s^(-c+L) Log[s]^4-1/120 (-c+nMut)^5 s^(-c+L) Log[s]^5+(O[-c+nMut]^1)^6
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[30] is Protected.
+Out[85]= $Failed
+During evaluation of In[1]:= Set::write: Tag Out in %30 is Protected.
+Out[89]= Log[5]^2
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[31] is Protected.
+Out[93]= $Failed
+During evaluation of In[1]:= Set::write: Tag Out in %31 is Protected.
+Out[97]= 2.5903
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[32] is Protected.
+Out[101]= $Failed
+During evaluation of In[1]:= Set::write: Tag Out in %32 is Protected.
+Out[105]= 3.2189
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "Mut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.$Failed is Protected.
+Out[107]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by "s)^(L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in is Out Tag $Failed Protected.Null is Protected.
+Out[109]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 nMut^4-1/120 ((1-s)^L Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8 nMut^8)/40320-(((1-s)^L Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "Mut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.((1-s)^L-(1+Times[<<2>>])^L Log[1+Times[<<2>>]] nMut+<<12>>+((1+Times[<<2>>])^L Log[Plus[<<2>>]]^10 nMut^10)/3628800+O[nMut]^11) is Protected.
+Out[111]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "Mut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6
+       ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s<<195>>(1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Times in in is Null Out Tag Protected.Null is Protected.
+Out[113]= (1-s)^(-c+L)-(-c+nMut) (1-s)^(-c+L) Log[1-s]+1/2 (-c+nMut)^2 (1-s)^(-c+L) Log[1-s]^2-1/6 (-c+nMut)^3 (1-s)^(-c+L) Log[1-s]^3+1/24 (-c+nMut)^4 (1-s)^(-c+L) Log[1-s]^4-1/120 (-c+nMut)^5 (1-s)^(-c+L) Log[1-s]^5+(O[-c+nMut]^1)^6
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "Mut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.Null is Protected.
+Out[115]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "Mut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "og[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L
+       Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-<<185>>(1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:= SeriesData::sdatv: First argument -L+nMut+L (1-p)^k is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Times in in is <<4>> <<3>> Tag Protected.((1-s)^(-c+L)-(-c+nMut) (1-s)^(-c+L) Log[1-s]+1/2 (-c+nMut)^2 (1-s)^(-c+L) Log[1+Times[<<2>>]]^2-1/6 (-c+<<4>>)^3 (<<1>>)^<<1>> Log[<<1>>]^3+1/24 (-c+nMut)^4 (1-s)^(-c+L) Log[1+Times[<<2>>]]^4-1/120 (-c+nMut)^5 (1-s)^(-c+L) Log[1+Times[<<2>>]]^5+(O[-c+nMut]^1)^6) is Protected.
+Out[117]= (1-s)^(L (1-p)^k)-(-L+nMut+L (1-p)^k) (1-s)^(L (1-p)^k) Log[1-s]+1/2 (-L+nMut+L (1-p)^k)^2 (1-s)^(L (1-p)^k) Log[1-s]^2-1/6 (-L+nMut+L (1-p)^k)^3 (1-s)^(L (1-p)^k) Log[1-s]^3+1/24 (-L+nMut+L (1-p)^k)^4 (1-s)^(L (1-p)^k) Log[1-s]^4-1/120 (-L+nMut+L (1-p)^k)^5 (1-s)^(L (1-p)^k) Log[1-s]^5+1/720 (-L+nMut+L (1-p)^k)^6 (1-s)^(L (1-p)^k) Log[1-s]^6-((-L+nMut+L (1-p)^k)^7 (1-s)^(L (1-p)^k) Log[1-s]^7)/5040+((-L+nMut+L (1-p)^k)^8 (1-s)^(L (1-p)^k) Log[1-s]^8)/40320-((-L+nMut+L (1-p)^k)^9 (1-s)^(L (1-p)^k) Log[1-s]^9)/362880+((-L+nMut+L (1-p)^k)^10 (1-s)^(L (1-p)^k) Log[1-s]^10)/3628800+(O[-L+nMut+L (1-p)^k]^1)^11
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6
+       ((1-s)^L Log[1-s]^3) nMut^3+1/24 <<199>>(1-s)^L Log[1-s]^10
+       nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "".
+During evaluation of In[1]:= Set::write: Tag Times in in in In is is Tag Tag Times $Failed Protected.Null Protected.Null is Protected.
+Out[119]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6
+       ((1-s)^L Log[1-s]^3) nMut^3+1/24 <<199>>(1-s)^L Log[1-s]^10
+       nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:= Set::write: Tag Times in in in is is Out Tag Tag Times $Failed Protected.Null Protected.Null is Protected.
+Out[121]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-s]^4 nMut^4-1/120 ((1-s)^L Log[1-s]^5) nMut^5+1/720 (1-s)^L Log[1-s]^6 nMut^6-(((1-s)^L Log[1-s]^7) nMut^7)/5040+((1-s)^L Log[1-s]^8 nMut^8)/40320-(((1-s)^L Log[1-s]^9) nMut^9)/362880+((1-s)^L Log[1-s]^10 nMut^10)/3628800+O[nMut]^11
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "1]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2
+       nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^<<206>>(1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:= Set::write: Tag Times in in in In is is Null Tag Tag Times Protected.Null Protected.Null is Protected.
+Out[123]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "(1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2
+       nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/<<202>>(1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "800+O[nMut]^11".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6
+       ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s<<195>>(1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Times in in in is is Null Out Tag Tag Times Protected.Null Protected.Null is Protected.
+Out[125]= (1-s)^(-c+L)-(-c+nMut) (1-s)^(-c+L) Log[1-s]+1/2 (-c+nMut)^2 (1-s)^(-c+L) Log[1-s]^2-1/6 (-c+nMut)^3 (1-s)^(-c+L) Log[1-s]^3+1/24 (-c+nMut)^4 (1-s)^(-c+L) Log[1-s]^4-1/120 (-c+nMut)^5 (1-s)^(-c+L) Log[1-s]^5+(O[-c+nMut]^1)^6
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "1]= (1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2
+       nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^<<206>>(1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:= Set::write: Tag Times in in in In is is Null Tag Tag Times Protected.Null Protected.Null is Protected.
+Out[127]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "(1-s)^L-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2
+       nMut^2-1/6 ((1-s)^L Log[1-s]^3) nMut^3+1/<<202>>(1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by "t^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "og[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6 ((1-s)^L
+       Log[1-s]^3) nMut^3+1/24 (1-s)^L Log[1-<<185>>(1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:= SeriesData::sdatv: First argument -L+nMut+L (1-p)^k is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Times in in in is is Null Out Tag Tag Times Protected.Null Protected.Null is Protected.
+Out[129]= (1-s)^(L (1-p)^k)-(-L+nMut+L (1-p)^k) (1-s)^(L (1-p)^k) Log[1-s]+1/2 (-L+nMut+L (1-p)^k)^2 (1-s)^(L (1-p)^k) Log[1-s]^2-1/6 (-L+nMut+L (1-p)^k)^3 (1-s)^(L (1-p)^k) Log[1-s]^3+1/24 (-L+nMut+L (1-p)^k)^4 (1-s)^(L (1-p)^k) Log[1-s]^4-1/120 (-L+nMut+L (1-p)^k)^5 (1-s)^(L (1-p)^k) Log[1-s]^5+1/720 (-L+nMut+L (1-p)^k)^6 (1-s)^(L (1-p)^k) Log[1-s]^6-((-L+nMut+L (1-p)^k)^7 (1-s)^(L (1-p)^k) Log[1-s]^7)/5040+((-L+nMut+L (1-p)^k)^8 (1-s)^(L (1-p)^k) Log[1-s]^8)/40320-((-L+nMut+L (1-p)^k)^9 (1-s)^(L (1-p)^k) Log[1-s]^9)/362880+((-L+nMut+L (1-p)^k)^10 (1-s)^(L (1-p)^k) Log[1-s]^10)/3628800+(O[-L+nMut+L (1-p)^k]^1)^11
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "Mut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.Null is Protected.
+Out[131]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "Mut), {nMut, 0, 10}]".
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by 
+    "-(1-s)^L Log[1-s] nMut+1/2 (1-s)^L Log[1-s]^2 nMut^2-1/6
+       ((1-s)^L Log[1-s]^3) nMut^3+1/24 (1-s<<195>>(1-s)^L
+       Log[1-s]^10 nMut^10)/3628800+O[nMut]^11".
+During evaluation of In[1]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Times in in is Null Out Tag Protected.$Failed is Protected.
+Out[133]= s^(-c+L)-(-c+nMut) s^(-c+L) Log[s]+1/2 (-c+nMut)^2 s^(-c+L) Log[s]^2-1/6 (-c+nMut)^3 s^(-c+L) Log[s]^3+1/24 (-c+nMut)^4 s^(-c+L) Log[s]^4-1/120 (-c+nMut)^5 s^(-c+L) Log[s]^5+(O[-c+nMut]^1)^6
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "Mut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.Null is Protected.
+Out[135]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by "s)^(L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in is Null Out Tag Protected.Null is Protected.
+Out[137]= Log[5]^2
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "Mut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.Null is Protected.
+Out[139]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by "s)^(L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in is Null Out Tag Protected.((1-s)^(L (1+Times[<<2>>])^k)-(-L+nMut+L Plus[<<2>>]^k) (1-s)^(L Plus[<<2>>]^k) Log[1-s]+<<13>>+(O[-L+nMut+L Power[<<2>>]]^1)^11) is Protected.
+Out[141]= 2.5903
+During evaluation of In[1]:=
+Syntax::sntxf: "" cannot be followed by "Mut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in In is Null Tag Protected.Null is Protected.
+Out[143]= $Failed
+During evaluation of In[1]:=
+Syntax::sntxf: 
+   "" cannot be followed by "s)^(L-nMut), {nMut, 0, 10}]".
+During evaluation of In[1]:= Set::write: Tag Times in in is Null Out Tag Protected.$Failed is Protected.
+Out[145]= 3.2189
+During evaluation of In[1]:= SetDelayed::write: Tag In in In[55] is Protected.
+Out[147]= $Failed
+During evaluation of In[1]:= SeriesData::sdatv: First argument -c+nMut is not a valid variable.
+During evaluation of In[1]:= Set::write: Tag Out in %55 is Protected.
+Out[149]= (1-s)^(2 c)+2 (-c+nMut) (1-s)^(2 c) Log[1-s]+2 (-c+nMut)^2 (1-s)^(2 c) Log[1-s]^2+4/3 (-c+nMut)^3 (1-s)^(2 c) Log[1-s]^3+2/3 (-c+nMut)^4 (1-s)^(2 c) Log[1-s]^4+4/15 (-c+nMut)^5 (1-s)^(2 c) Log[1-s]^5+(O[-c+nMut]^1)^6
