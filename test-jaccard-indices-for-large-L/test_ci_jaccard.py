@@ -30,13 +30,16 @@ if __name__ == '__main__':
         phigh = ci[5]
         p_point = ci[6]
         #print(C_scale, mutation_rate, plow, phigh)
+        miss = False
         if mutation_rate >= plow and mutation_rate <= phigh:
             hit_count += 1
+            miss = False
         else:
             miss_count += 1
+            miss = True
         mid_point = (plow + phigh) / 2.0
-        if mutation_rate >= mid_point:
+        if mutation_rate >= mid_point and miss:
             above_mid_point_count += 1
-        else:
+        elif mutation_rate < mid_point and miss:
             below_mid_point_count += 1
     print(k_mer_length, mutation_rate, num_k_mers, scale_factor, 1.0*hit_count/(hit_count+miss_count), hit_count, miss_count, above_mid_point_count, below_mid_point_count)
