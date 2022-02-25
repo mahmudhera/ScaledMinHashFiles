@@ -1,0 +1,1 @@
+In this experiment we will simulate point mutations using Binomial, then take random samples, and then return true/false if there is nothing common between the sketches. We will perform this multiple times to generate expected number of times we see nothing common.
