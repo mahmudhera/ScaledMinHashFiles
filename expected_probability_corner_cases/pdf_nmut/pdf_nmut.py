@@ -10,23 +10,28 @@ def perform_exhaustive_counting(k, p, L):
 
 k = 21
 p = 0.1
-L = 50
+L = 1000
 arr = perform_exhaustive_counting(k, p, L)
 
-c = np.zeros((L+1, L+1, L+1))
-c[k][0] = arr[0]
-c[k][1] = arr[1]
+curr = np.zeros((L+1, L+1))
+next = np.zeros((L+1, L+1))
+curr[0] = arr[0]
+curr[1] = arr[1]
+
+print(curr)
 
 for l in range(k+1, L+1):
+    next[next>0] = 0
     for x in range(L):
         for z in range(L):
             if z < k-1:
-                c[l, x+1, z+1] += c[l-1, x, z]
+                next[x+1, z+1] += curr[x, z]
             else:
-                c[l, x, z+1] += c[l-1, x, z]
-            c[l, x+1, 0] += c[l-1, x, z]
-print(c[L])
-print(int(sum(sum(c[L]))))
+                next[x, z+1] += curr[x, z]
+            next[x+1, 0] += curr[x, z]
+    next, curr = curr, next
+print(curr)
+print(int(sum(sum(curr))))
 print(2**L)
 '''
 print(sum(sum(arr)))
