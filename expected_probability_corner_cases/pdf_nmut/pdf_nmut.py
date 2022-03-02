@@ -34,10 +34,16 @@ def get_nmut_pdf(L, k, p):
     #print(2**L)
     return np.sum(curr, axis=1)
 
-L = 5
-k = 5
+L = 50
+k = 21
 p = 0.1
-print( get_nmut_pdf(L+k-1, k, p) )
+q = 1 - (1-p)**k
+print('Expectation from formula:')
+print(L*q)
+print('Expectation from pdf:')
+pdf = get_nmut_pdf(L+k-1, k, p)
+expectation = sum( [i*pdf[i] for i in range(L+1)] )
+print(expectation)
 
 '''
 print(sum(sum(arr)))
