@@ -113,22 +113,30 @@ def f_test_pdf(L, k, p, s):
 	return total
 
 if __name__ == '__main__':
-	L = 10000
+	L = 100000000
 	k = 21
-	p = 0.2
-	s = 0.1
+	p = 0.5
+	s = 0.4
 
 	sigma = sqrt(var_n_mutated(L, k, p))
 	mu = exp_n_mutated(L, k, p)
+
+	#a = mu**4 + 6 * mu**2 * sigma**2 + 3 * sigma**4
+	#a = mu**3 + 3 * mu * sigma**2
+	#b = L**4
+	#print(1.0*a/b)
+
 	const = sigma * log(1.0-s)/sqrt(2.0)
 	lst = []
-	print(const, mu, L)
-	for i in [2*x for x in range(1,1000)]:
-		logarithm = (L-mu) * log(1.0-s) - sum( log(y) for y in range(1,i/2+1) )
-		lst.append(exp(logarithm)*const**i)
-		if i==2:
-			print((L-mu) * log(1.0-s), logarithm)
+	print(const, L-mu)
+	for i in [2*x for x in range(500)]:
+		t1 = (L-mu) * log(1.0-s)
+		t2 = sum( log(y) for y in range(1,i/2+1) )
+		t3 = i * log(abs(const))
+		logarithm = t1 - t2 + t3
+		lst.append(exp(logarithm))
 	print(sum(lst))
+	print(lst[-5:])
 
 
 	'''
