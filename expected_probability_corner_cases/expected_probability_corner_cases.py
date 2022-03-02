@@ -115,8 +115,8 @@ def f_test_pdf(L, k, p, s):
 if __name__ == '__main__':
 	L = 100000000
 	k = 21
-	p = 0.5
-	s = 0.4
+	p = 0.4
+	s = 0.1
 
 	sigma = sqrt(var_n_mutated(L, k, p))
 	mu = exp_n_mutated(L, k, p)

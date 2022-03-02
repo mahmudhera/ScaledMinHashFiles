@@ -1,5 +1,29 @@
 import numpy as np
 
+def r1_to_q(k,r1):
+	#return 1-(1-r1)**k
+	r1 = float(r1)
+	q = 1-(1-r1)**k
+	return float(q)
+
+def exp_n_mutated(L,k,r1):
+	q = r1_to_q(k,r1)
+	return L*q
+
+def var_n_mutated(L,k,r1,q=None):
+	if (r1 == 0): return 0.0
+	r1 = float(r1)
+	if (q == None):
+		q = r1_to_q(k,r1)
+	varN = L*(1-q)*(q*(2*k+(2/r1)-1)-2*k) \
+	     + k*(k-1)*(1-q)**2 \
+	     + (2*(1-q)/(r1**2))*((1+(k-1)*(1-q))*r1-q)
+	assert (varN>=0.0)
+	return float(varN)
+
+def exp_n_mutated_squared(L, k, p):
+    return var_n_mutated(L, k, p) + exp_n_mutated(L, k, p) ** 2
+
 def perform_exhaustive_counting(k, p, L):
     arr = np.zeros((2, L+1))
     # arr[i,j] indicates c[k,i,j]
@@ -43,6 +67,13 @@ print(L*q)
 print('Expectation from pdf:')
 pdf = get_nmut_pdf(L+k-1, k, p)
 expectation = sum( [i*pdf[i] for i in range(L+1)] )
+print(expectation)
+
+print('2nd moment from formula:')
+print( exp_n_mutated_squared(L,k,p) )
+print('2nd moment from pdf:')
+pdf = get_nmut_pdf(L+k-1, k, p)
+expectation = sum( [i**2*pdf[i] for i in range(L+1)] )
 print(expectation)
 
 '''
