@@ -2,6 +2,7 @@ In this experiment we will simulate point mutations using Binomial, then take ra
 
 Using 2000 runs, the following few values were observed:
 
+```
 (L, k, p, s, exp_probability)
 
 L = 10k
@@ -21,3 +22,4 @@ L = 500
 (500, 31, 0.1, 0.2, 0.219)
 (500, 21, 0.2, 0.2, 0.6095)
 (500, 31, 0.2, 0.2, 0.9585)
+```
