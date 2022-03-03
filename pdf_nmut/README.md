@@ -80,3 +80,25 @@ for every x and z, do the following:
         p[l+1, x, z+1] += p[l, x, z] * (1-p)
     p[l+1, x, 0] += p[l, x, z] * p
 ```
+
+## Correctness
+Verified using formulas for three moments, and this pdf.
+For L = 50, k = 21, p = 0.1, we get:
+
+Expectation from formula:
+44.5290505434
+Expectation from pdf:
+44.5290505434
+
+2nd moment from formula:
+2042.78475811
+2nd moment from pdf:
+2042.78475811
+
+3rd moment from formula:
+95435.2403145
+3rd moment from pdf:
+95435.2403145
+
+## Running time
+Runs in order of `L^3`
