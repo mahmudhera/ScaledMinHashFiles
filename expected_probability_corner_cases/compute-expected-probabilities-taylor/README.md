@@ -1,1 +1,5 @@
-```E^(1/2 sigma^2 Log[1 - s]^2) (1 - s)^(L - mu)```
+The idea is to take a Taylor series expansion, and then use linearity of expectations. The Taylor expansion is as follows:
+
+![][readable.PNG]
+
+OK
