@@ -60,4 +60,5 @@ def get_nmut_pdf(num_bases, k, p):
                     next[x, z+1] += curr[x, z] * (1-p)
                 next[x+1, 0] += curr[x, z] * p
         next, curr = curr, next
+        print('done for l = ' + str(l))
     return np.sum(curr, axis=1)

@@ -136,22 +136,27 @@ For 10k simulations, calculate if nothing common in the sketches. Count # of tim
 this happens. Count the % of times this happens. Then compare and make a contrast
 with the value we have from formula.
 '''
+def exp_probability_using_simulations(num_kmers, k_mer_length, mutation_rate, scale_factor, num_simulations = 1000):
+    mutation_model = MutationModel(num_k_mers+k_mer_length-1, k_mer_length, mutation_rate, scale_factor)
+    nothing_common_counter = 0
+    for iter in range(num_simulations):
+        mutation_model.generate()
+        if nothing_common_between_sketches(mutation_model):
+            nothing_common_counter += 1
+    estimated_expected_probability = 1.0 * nothing_common_counter / num_simulations
+    return estimated_expected_probability
+
 if __name__ == '__main__':
     mutation_rates = [0.2, 0.3]
     scale_factors = [0.1]
     k_mer_lengths = [21, 31]
-    num_k_mers_list = [10000]
+    num_k_mers_list = [1000]
     num_simulations = 2000
 
     for scale_factor in scale_factors:
         for num_k_mers in num_k_mers_list:
             for mutation_rate in mutation_rates:
                 for k_mer_length in k_mer_lengths:
-                    mutation_model = MutationModel(num_k_mers+k_mer_length-1, k_mer_length, mutation_rate, scale_factor)
-                    nothing_common_counter = 0
-                    for iter in range(num_simulations):
-                        mutation_model.generate()
-                        if nothing_common_between_sketches(mutation_model):
-                            nothing_common_counter += 1
-                    estimated_expected_probability = 1.0 * nothing_common_counter / num_simulations
+                    estimated_expected_probability = exp_probability_using_simulations(num_k_mers, k_mer_length,
+                                                                            mutation_rate, scale_factor, num_simulations)
                     print (num_k_mers, k_mer_length, mutation_rate, scale_factor, estimated_expected_probability)
