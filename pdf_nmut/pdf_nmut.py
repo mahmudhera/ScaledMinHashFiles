@@ -32,8 +32,8 @@ def third_moment_nmut_exact(L,k,p):
     t4 = 6 * (-1 + (1 - p)**k) * ((k + k**2 - 2 * k * L + (-1 + L) * L) * (-1 + 2 * (1 - p)**k) * hyp2f1(1, 2 + k - L, k - L, 1) + (k + k**2 - 2 * k * L + (-1 + L) * L) * (1 - p)**k * (-1 + p) * hyp2f1(1, 2 + k - L, k - L, 1 - p) - (-2 * k + 4 * k**2 + L - 4 * k * L + L**2) * ((-1 + 2 * (1 - p)**k) * hyp2f1(1, 1 + 2 * k - L, -1 + 2 * k - L, 1)- (-1 + p)**(2 * k) * hyp2f1(1, 1 + 2 * k - L, -1 + 2 * k - L, 1 - p)))
     return t1+t2+t3+t4
 
-def perform_exhaustive_counting(k, p, L):
-    arr = np.zeros((2, L+1))
+def perform_exhaustive_counting(k, p, num_bases):
+    arr = np.zeros((2, num_bases+1))
     # arr[i,j] indicates c[k,i,j]
     #arr[0, k] = 1 # (1-p)**k
     arr[0, k] = (1-p)**k
@@ -42,28 +42,24 @@ def perform_exhaustive_counting(k, p, L):
         arr[1, k-i] = p * (1-p)**(k-i)
     return arr
 
-def get_nmut_pdf(L, k, p):
+def get_nmut_pdf(num_bases, k, p):
     # here, L means # of bases, length of the whole string
-    arr = perform_exhaustive_counting(k, p, L)
-    curr = np.zeros((L+1, L+1))
-    next = np.zeros((L+1, L+1))
+    arr = perform_exhaustive_counting(k, p, num_bases)
+    curr = np.zeros((num_bases+1, num_bases+1))
+    next = np.zeros((num_bases+1, num_bases+1))
     curr[0] = arr[0]
     curr[1] = arr[1]
 
-    for l in range(k+1, L+1):
+    for l in range(k+1, num_bases+1):
         next[next>0] = 0
-        for x in range(L):
-            for z in range(L):
+        for x in range(num_bases):
+            for z in range(num_bases):
                 if z < k-1:
                     next[x+1, z+1] += curr[x, z] * (1-p)
                 else:
                     next[x, z+1] += curr[x, z] * (1-p)
                 next[x+1, 0] += curr[x, z] * p
         next, curr = curr, next
-    #print(curr)
-    #print(np.sum(curr, axis=0))
-    #print(int(sum(sum(curr))))
-    #print(2**L)
     return np.sum(curr, axis=1)
 
 L = 50
@@ -90,31 +86,3 @@ print('3rd moment from pdf:')
 pdf = get_nmut_pdf(L+k-1, k, p)
 expectation = sum( [i**3*pdf[i] for i in range(L+1)] )
 print(expectation)
-
-'''
-print(sum(sum(arr)))
-print(2**k)
-
-print(arr)
-L = k+1
-arr_L = np.zeros((k+1, k+2))
-for x in range(L-k+1):
-    for z in range(k+1):
-        if z < k-1:
-            arr_L[x+1, z+1] += arr[x,z]
-        else:
-            arr_L[x, z+1] += arr[x,z]
-        arr_L[x+1, 0] += arr[x,z]
-        print(x, z)
-print(arr_L)
-print(sum(sum(arr_L)))
-'''
-'''
-[[  0.   0.   0.   0.   0.   0.   1.]
- [  1.   0.   0.   0.   0.   1.   0.]
- [ 31.  16.   8.   4.   2.   0.   0.]
- [  0.   0.   0.   0.   0.   0.   0.]
- [  0.   0.   0.   0.   0.   0.   0.]
- [  0.   0.   0.   0.   0.   0.   0.]]
- [ 0.12157665,  0.02701703,  0.03151987,  0.0366898,   0.04261946,  0.18449904, 0.0707005, 0.07409356,  0.07605214,  0.07600764,  0.08826228,  0.05290512, 0.04346563,  0.03291675,  0.02219589,  0.01276791,  0.00671071]
-'''
