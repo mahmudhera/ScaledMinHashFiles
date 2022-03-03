@@ -53,7 +53,7 @@ for every x and z, do the following:
         c[l+1, x+1, z+1] += c[l, x, z]
     else:
         c[l+1, x, z+1] += c[l, x, z]
-    c[l+1, x, 0] += c[l, x, z]
+    c[l+1, x+1, 0] += c[l, x, z]
 ```
 
 ### Translating to probablities
@@ -78,7 +78,7 @@ for every x and z, do the following:
         p[l+1, x+1, z+1] += p[l, x, z] * (1-p)
     else:
         p[l+1, x, z+1] += p[l, x, z] * (1-p)
-    p[l+1, x, 0] += p[l, x, z] * p
+    p[l+1, x+1, 0] += p[l, x, z] * p
 ```
 
 ## Correctness
