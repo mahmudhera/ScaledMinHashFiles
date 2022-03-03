@@ -147,10 +147,10 @@ def exp_probability_using_simulations(num_kmers, k_mer_length, mutation_rate, sc
     return estimated_expected_probability
 
 if __name__ == '__main__':
-    mutation_rates = [0.2, 0.3]
-    scale_factors = [0.1]
+    mutation_rates = [0.1, 0.2]
+    scale_factors = [0.2]
     k_mer_lengths = [21, 31]
-    num_k_mers_list = [1000]
+    num_k_mers_list = [500]
     num_simulations = 2000
 
     for scale_factor in scale_factors:
