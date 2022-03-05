@@ -62,10 +62,14 @@ def get_nmut_pdf(num_bases, k, p):
         next, curr = curr, next
     return np.sum(curr, axis=1)
 
-L = 50
-k = 21
+L = 6
+k = 5
 p = 0.1
 q = 1 - (1-p)**k
+
+pdf = get_nmut_pdf(L+k-1, k, p)
+print(pdf)
+
 print('Expectation from formula:')
 print(L*q)
 print('Expectation from pdf:')
