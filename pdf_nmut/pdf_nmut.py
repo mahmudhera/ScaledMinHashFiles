@@ -62,31 +62,27 @@ def get_nmut_pdf(num_bases, k, p):
         next, curr = curr, next
     return np.sum(curr, axis=1)
 
-L = 6
-k = 5
+L = 100
+k = 21
 p = 0.1
 q = 1 - (1-p)**k
 
 pdf = get_nmut_pdf(L+k-1, k, p)
-print(pdf)
 
 print('Expectation from formula:')
 print(L*q)
 print('Expectation from pdf:')
-pdf = get_nmut_pdf(L+k-1, k, p)
 expectation = sum( [i*pdf[i] for i in range(L+1)] )
 print(expectation)
 
 print('2nd moment from formula:')
 print( exp_n_mutated_squared(L,k,p) )
 print('2nd moment from pdf:')
-pdf = get_nmut_pdf(L+k-1, k, p)
 expectation = sum( [i**2*pdf[i] for i in range(L+1)] )
 print(expectation)
 
 print('3rd moment from formula:')
 print( third_moment_nmut_exact(L,k,p) )
 print('3rd moment from pdf:')
-pdf = get_nmut_pdf(L+k-1, k, p)
 expectation = sum( [i**3*pdf[i] for i in range(L+1)] )
 print(expectation)
