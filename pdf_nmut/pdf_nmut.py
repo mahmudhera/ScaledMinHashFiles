@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.special import hyp2f1
+import time
 
 def r1_to_q(k,r1):
 	#return 1-(1-r1)**k
@@ -62,12 +63,45 @@ def get_nmut_pdf(num_bases, k, p):
         next, curr = curr, next
     return np.sum(curr, axis=1)
 
+def perform_exhaustive_counting_modified(k, p):
+    arr = np.zeros((2, k+1))
+    arr[0, k] = (1-p)**k
+    for i in range(1,k+1):
+        arr[1, k-i] = p * (1-p)**(k-i)
+    return arr
+
+def get_nmut_pdf_modified(num_bases, k, p):
+    # here, L means # of bases, length of the whole string
+    arr = perform_exhaustive_counting_modified(k, p)
+    curr = np.zeros((num_bases+1, k+1))
+    next = np.zeros((num_bases+1, k+1))
+    curr[0] = arr[0]
+    curr[1] = arr[1]
+
+    for l in range(k+1, num_bases+1):
+        next[next>0] = 0
+        for x in range(num_bases):
+			total = 0.0
+			for z in range(k+1):
+				total += curr[x-1, z]
+			next[x, 0] = total * p
+			for z in range(1, k+1):
+				if z < k:
+					next[x, z] = curr[x-1, z-1] * (1-p)
+				else:
+					next[x, z] = (curr[x, k-1] + curr[x, k]) * (1-p)
+        next, curr = curr, next
+    return np.sum(curr, axis=1)
+
 L = 100
 k = 21
 p = 0.1
 q = 1 - (1-p)**k
 
+start = time.time()
 pdf = get_nmut_pdf(L+k-1, k, p)
+end = time.time()
+print("Original one: time needed: ", end-start)
 
 print('Expectation from formula:')
 print(L*q)
@@ -75,11 +109,23 @@ print('Expectation from pdf:')
 expectation = sum( [i*pdf[i] for i in range(L+1)] )
 print(expectation)
 
+print('Expectation from modified pdf:')
+start = time.time()
+pdf = get_nmut_pdf_modified(L+k-1, k, p)
+end = time.time()
+print("Original one: time needed: ", end-start)
+expectation = sum( [i*pdf[i] for i in range(L+1)] )
+print(expectation)
+
+print('--')
+
 print('2nd moment from formula:')
 print( exp_n_mutated_squared(L,k,p) )
 print('2nd moment from pdf:')
 expectation = sum( [i**2*pdf[i] for i in range(L+1)] )
 print(expectation)
+
+print('--')
 
 print('3rd moment from formula:')
 print( third_moment_nmut_exact(L,k,p) )
